@@ -1,2 +1,42 @@
-# cModLoaderLegacy
-a mod loader for vanilla terraria
+# cModLoader (crawdad's mod loader) (Legacy)
+
+cModLoader is a mod loader for vanilla terraria allowing the user to run custom code in vanilla terraria via a dll file. This is the legacy version using dll injection and requires c++. A newer version that dose not require dll injection nor c++ is in the works and should make it easier to modify existing Terraria code using Harmony or something.
+
+## How it works
+
+The user will download the initializer exe along with the cModLoader.dll file. after running the initializer it will find the terraria directory and renames the Terraria exe to RealTerraria.exe and then copies itself and changes the name to Terraria.exe, this then allows cModLoader to run from steam. After installing the user can open terraria like normal and some code will run that launches terraria and injects a dll that inserts itself into Terraria's main thread. When terraria opens a new button in the top left corner of the screen is visible clicking on this will open a new mod menu where the user can upload mods. 
+(This does **NOT** run tModLoader mods)
+
+## How to run a mod
+
+When uploading a mod the user will be prompted to select a dll file, assuming this is a valid mod file it will run whatever code is within the dll. Currently there is 1 official mod, that being an auto fisher. This auto fisher is the middle child [predecessor to the one](https://crawdad105.itch.io/terraria-auto-fisher) this version on this repositor probably wont be updated but once I create the real cModLoader I will add multiple other example mods including a new working auto fisher which will be the auto fisher 2.0 mentioned on the itch.io page.
+
+## Unloading mods
+
+It is impossible. Although there are many ways to unload dlls from a program, there is no way I could find to unload these dlls while being able to reload them, so live updating like tModLaoder is not possible. (tModLoader was made using a different framework specifical so this can be done and using .net 4.0 its not possible the same way that tMod did it)
+
+## How to create a mod
+
+A valid mod dll consists of a dll file with an exported function called "InjectTerrariaMod", this is the functions that will be ran allowing custom code to be ran. The dll needs to be 32 bit, and although not technically required it makes modding a lot easier using c++ with common language runtime, this allows for running terraria code like `Terraria::Main`. In the "InjectTerrariaMod" functions you should create an instance of a custom class that inherits the Mod class from `cModLoader::ModComponents::Mod` this adds some functions that allow you to do things like run code in the main thread, add UI elements. Initializing an instance of the Mod class outside of the InjectTerrariaMod function it give you an error, this is so a mod isn't loaded at a bad time. Unfortunately its not tModLoader meaning without modifying the vanilla code its not easy to run code directly before or after the actual game update, currently only a post or pre draw update is provided. Feel free to use the provided auto fisher code to develop your own mod.  
+
+If using c++/clr yould need to add some references to your project so the mod can compile and run those include:
+* Microsoft.Xna.Framework
+* Microsoft.Xna.Framework.Game
+* Microsoft.Xna.Framework.Graphics
+* ReLogic (this can be extracted using IlSpy or something or found within the tmod files)
+* Terraria
+
+(the frameworks can be found at `C:\Windows\Microsoft.NET\assembly\GAC_32` (I don't know if this is always the case))
+
+## When is the fill version?
+
+As stated before this is only a legacy version (despite it coming out before the full version). This version of cModLoader was made using c++ and requires c++ dll to run. Because c# is easyer to understand I do want the full version to run using c# and take c# and c++ dlls as mods. I also dont want to deal with dll injection 
+
+## Need help?
+
+Join the official Crawdad105 discord server if you need help creating a mod, reading or wrighting code.
+https://discord.com/invite/5NKSqxkckA
+
+## Can I "borrow" the code?
+
+Yes. feel free to fork, steal or copy any code here. Although you don't need to do this, I suggest marking mods made for this specific version of cModLoader as legacy, so when the real cModLoader comes out there isn't any confusion (however I will try making it compatible). And if you create a mod feel free to share it in the discord server and I might add a link to the mod here for anyone else (if its a virus you will be banned).
