@@ -1,0 +1,1 @@
+When running the exe the cModLoader dll should be in the this directory
