@@ -1,6 +1,6 @@
 # cModLoader (Crawdad's mod loader) (Legacy)
 
-cModLoader is a mod loader for vanilla terraria allowing the user to run custom code in vanilla terraria via a dll file. This is the legacy version using dll injection and requires c++. A newer version that dose not require dll injection nor c++ is in the works and should make it easier to modify existing Terraria code using Harmony or something.
+cModLoader is a mod loader for vanilla terraria allowing the user to run custom code in vanilla terraria via a dll file. This is the legacy version using dll injection and requires c++. A newer version that does not require dll injection nor c++ is in the works and should make it easier to modify existing Terraria code using Harmony or something.
 
 ## How it works
 
