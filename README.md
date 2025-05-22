@@ -32,7 +32,7 @@ If using c++/clr yould need to add some references to your project so the mod ca
 
 (the frameworks can be found at `C:\Windows\Microsoft.NET\assembly\GAC_32` (I don't know if this is always the case))
 
-## When is the fill version?
+## When is the full version?
 
 As stated before this is only a legacy version (despite it coming out before the full version). This version of cModLoader was made using c++ and requires c++ dll to run. Because c# is easyer to understand I do want the full version to run using c# and take c# and c++ dlls as mods. I also dont want to deal with dll injection 
 
