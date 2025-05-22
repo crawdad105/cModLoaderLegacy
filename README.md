@@ -1,4 +1,4 @@
-# cModLoader (crawdad's mod loader) (Legacy)
+# cModLoader (Crawdad's mod loader) (Legacy)
 
 cModLoader is a mod loader for vanilla terraria allowing the user to run custom code in vanilla terraria via a dll file. This is the legacy version using dll injection and requires c++. A newer version that dose not require dll injection nor c++ is in the works and should make it easier to modify existing Terraria code using Harmony or something.
 
@@ -10,6 +10,10 @@ The user will download the initializer exe along with the cModLoader.dll file. a
 ## How to run a mod
 
 When uploading a mod the user will be prompted to select a dll file, assuming this is a valid mod file it will run whatever code is within the dll. Currently there is 1 official mod, that being an auto fisher. This auto fisher is the middle child [predecessor to the one](https://crawdad105.itch.io/terraria-auto-fisher) this version on this repositor probably wont be updated but once I create the real cModLoader I will add multiple other example mods including a new working auto fisher which will be the auto fisher 2.0 mentioned on the itch.io page.
+
+## Removing cModLoader
+
+If you wish to remove cModLoader to play vanila terraria without modifications you can run the `cModLoaderRemoverLegacy.exe` file located in the terraria directory.
 
 ## Unloading mods
 
