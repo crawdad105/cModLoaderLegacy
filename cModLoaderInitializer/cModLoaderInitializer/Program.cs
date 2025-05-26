@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using System.Drawing;
 
 namespace cModLoaderInitializerLegacy
@@ -146,7 +146,11 @@ namespace cModLoaderInitializerLegacy
 
         public static void Main(string[] args) {
             Status status = GetStatus(out string exacutionPath);
-            if (status == Status.ReturnError) return;
+            if (status == Status.ReturnError) {
+                Print("An unknown occured.", ConsoleColor.Red);
+                Console.ReadKey();
+                return;
+            }
             else if (status == Status.Remove) {
                 Print("Removing cModLoader...", ConsoleColor.Green);
                 if (!DoRemove(exacutionPath)) return;
@@ -178,7 +182,7 @@ namespace cModLoaderInitializerLegacy
                     cModLoaderPath = "";
                     Print("Error: Failed to locate the cModLoader dll.", ConsoleColor.Red);
                     Print("Press any button to continue loading terraria, without cModLoader...");
-                    Console.Read();
+                    Console.ReadKey();
                 }
                 TerrariaRunner.DoRunTerraria(cModLoaderPath, args.Length == 1 && (args[0].ToLower() == "console" || args[0].ToLower() == "debug"));
             }
