@@ -44,7 +44,7 @@ namespace cModLoaderInitializerLegacy
             // check cmodloader file exist
             string cModLoaderPath = exacutionPath.Substring(0, exacutionPath.LastIndexOf("\\") + 1) + "cModLoaderLegacy.dll";
             if (!File.Exists(cModLoaderPath)) {
-                Print("Error: Could not find 'cModLoader.dll' within the same directory as this EXE.\nPleace make sure a 'cModLoader.dll' file exist.", ConsoleColor.Red);
+                Print("Error: Could not find 'cModLoaderLegacy.dll' within the same directory as this EXE.\nPleace make sure a 'cModLoaderLegacy.dll' file exist.", ConsoleColor.Red);
                 Console.ReadKey();
                 return false;
             }
@@ -92,7 +92,7 @@ namespace cModLoaderInitializerLegacy
                 if (num == 0)
                     Print("Error: Failed to create icon file.\n\n" + e.Source + "\n\n" + e.InnerException + "\n\n" + e.StackTrace, ConsoleColor.Red);
                 else if (num == 1)
-                    Print("Error: Could not move cModLoader.dll file.", ConsoleColor.Red);
+                    Print("Error: Could not move cModLoaderLegacy.dll file.", ConsoleColor.Red);
                 else if (num == 2)
                     Print("Error: Failed to rename the original Terraria file.", ConsoleColor.Red);
                 else if (num == 3 || num == 4)
