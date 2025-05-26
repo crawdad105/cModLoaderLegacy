@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -11,15 +11,17 @@ namespace cModLoaderInitializerLegacy
     {
         public static void DoRunTerraria(string cModLoaderPath, bool consoleMode) {
             Program.Print("Inistializing Terraria...", ConsoleColor.Yellow);
-            Process terraria = new Process() {
-                StartInfo = new ProcessStartInfo() {
-                    FileName = "RealTerraria.exe",
-                    Arguments = "",
-                    UseShellExecute = false,
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true
-                },
+            ProcessStartInfo psi = new ProcessStartInfo
+            {
+                FileName = "RealTerraria.exe",
+                Arguments = "",
+                UseShellExecute = !consoleMode,
+                RedirectStandardOutput = consoleMode,
+                RedirectStandardError = consoleMode,
+                CreateNoWindow = false
             };
+
+            Process terraria = new Process { StartInfo = psi };
             if (consoleMode) {
                 terraria.OutputDataReceived += OnOuput;
                 terraria.ErrorDataReceived += OnError;
